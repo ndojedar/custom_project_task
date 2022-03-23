@@ -1,0 +1,37 @@
+<odoo>
+  <data>
+    <!-- Form view -->
+    <record id="custom_project_task_form_view" model="ir.ui.view">
+      <field name="name">custom_project_task_form_view</field>
+      <field name="model">project.task</field>
+      <field name="inherit_id" ref="pc_project_base.project_forecast_kpi_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='engineering_kpis_page']/group[1]" position="after">
+          <group name="engineering_kpis">
+            <group name="engineering_kpis_left">
+              <field name="multiplier" string="Multiplier"/>
+              <field name="production_amount_forecast" string="Production amount forecast"/>
+              <field name="amount_accounted" string="Amount Accounted"/>
+              <field name="unaccounted_production_pending" string="Unaccounted Production Pending"/>
+            </group>
+            <group name="engineering_kpis_right">
+              <field name="total_fixed_prod"/>
+            </group>
+          </group>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='engineering_kpis_page']/group[1]" position="replace"/>
+      </field>
+    </record>
+    <!-- Tree view -->
+    <!-- <record id="custom_project_task_tree_view" model="ir.ui.view">
+      <field name="name">custom_project_task_tree_view</field>
+      <field name="model">project.task</field>
+      <field name="inherit_id" ref="pc_project_menu_task_forecast.project_task_forecast_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='amount_accounted']" position="before">
+          <field name="total_fixed_prod" sum="Sum of Total FPV" optional="show"/>
+        </xpath>
+      </field>
+    </record> -->
+  </data>
+</odoo>
